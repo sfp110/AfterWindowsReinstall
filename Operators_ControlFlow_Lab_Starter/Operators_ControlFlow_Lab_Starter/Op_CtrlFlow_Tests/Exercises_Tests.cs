@@ -60,11 +60,18 @@ namespace Op_CtrlFlow_Tests
             Assert.That(Exercises.Average(myList), Is.EqualTo(4.4));
         }
 
+        //[Test]
+        //public void WhenListIsEmpty_Average_ReturnsZero()
+        //{
+        //    var myList = new List<int>() {};
+        //    Assert.That(Exercises.Average(myList), Is.EqualTo(0));
+        //}
+
         [Test]
-        public void WhenListIsEmpty_Average_ReturnsZero()
+        public void WhenListIsEmpty_Average_ThrowsException()
         {
             var myList = new List<int>() {};
-            Assert.That(Exercises.Average(myList), Is.EqualTo(0));
+            Assert.That(() => Exercises.Average(myList), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
         [TestCase(100, "OAP")]
@@ -81,6 +88,13 @@ namespace Op_CtrlFlow_Tests
         {
             var result = Exercises.TicketType(age);
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [TestCase(123)]
+        public void TicketTypeTest_OlderThan100_YoungerThan0(int age)
+        {
+            //var result = Exercises.TicketType(age);
+            Assert.That(() => Exercises.TicketType(age), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
         [TestCase(104)]

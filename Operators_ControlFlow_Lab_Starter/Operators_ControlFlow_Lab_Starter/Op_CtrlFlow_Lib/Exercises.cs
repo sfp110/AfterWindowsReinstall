@@ -17,9 +17,14 @@ namespace Op_CtrlFlow
         // returns the average of the array nums
         public static double Average(List<int> nums)
         {
+            //if(nums.Count == 0)
+            //{
+            //    return 0;
+            //}
             if(nums.Count == 0)
             {
-                return 0;
+                throw new ArgumentOutOfRangeException("0");
+                //return 0;
             }
             
             double average = 0;
@@ -38,6 +43,12 @@ namespace Op_CtrlFlow
         // "Free" if they are under 5
         public static string TicketType(int age)
         {
+
+            if(age > 122 || age < 0)
+            {
+                throw new ArgumentOutOfRangeException("Wrong age number.");
+            }
+
             string ticketType = string.Empty;
             if (age >= 60)
             {
