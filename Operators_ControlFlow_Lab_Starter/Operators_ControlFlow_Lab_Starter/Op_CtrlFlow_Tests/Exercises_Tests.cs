@@ -37,14 +37,15 @@ namespace Op_CtrlFlow_Tests
         //{
         //    Assert.That(Exercises.MyMethod(num1, num2), Is.EqualTo(false));
         //}
-        [TestCase(15,3)]
-        [TestCase(6, 2)]
-        [TestCase(35,7)]
+        [TestCase(15,3,true)]
+        [TestCase(6, 2,true)]
+        [TestCase(35,7,true)]
+        [TestCase(11, 5, false)]
 
-        //IS num 1 the factor of number 2 || IS num2 the factor of num1?
-        public void GivenTwoDifferentNumbers_IsTheResult_ACompositeNumber(int num1, int num2)
+        //Is num2 a factor of num1?
+        public void GivenTwoDifferentNumbers_IsTheResult_ACompositeNumber(int num1, int num2, bool result)
         {
-            Assert.That(Exercises.MyMethod(num1, num2), Is.EqualTo(true));
+            Assert.That(Exercises.MyMethod(num1, num2), Is.EqualTo(result));
         }
 
         // Factor, in mathematics, a number or algebraic expression that divides another number or expression evenly—i.e., with no remainder.
