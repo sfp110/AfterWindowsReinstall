@@ -8,8 +8,6 @@ namespace OperatorsApp
         static void Main(string[] args)
         {
             Console.WriteLine(EvenOdd(22));
-
-
             // i++ is different from ++i
 
             int i = 0;
